@@ -38,57 +38,6 @@ void Hooks::LevelShutdown() {
 	// invoke original method.
 	g_hooks.m_client.GetOldMethod< LevelShutdown_t >(CHLClient::LEVELSHUTDOWN)(this);
 }
-//void weather()
-//{
-//	static ClientClass* client_class = nullptr;
-//
-//	if (!client_class)
-//		client_class = g_csgo.m_client->GetAllClasses();
-//
-//	while (client_class)
-//	{
-//		if (client_class->m_ClassID == CPrecipitation)
-//			break;
-//
-//		client_class = client_class->m_pNext;
-//	}
-//
-//	if (!client_class)
-//		return;
-//
-//	auto entry = g_csgo.m_entlist->GetHighestEntityIndex() + 1;
-//	auto serial = g_csgo.RandomInt(0, 4095);
-//
-//	g_ctx.globals.m_networkable = client_class->m_pCreate(entry, serial);
-//
-//	if (!g_ctx.globals.m_networkable)
-//		return;
-//
-//	auto m_precipitation = g_ctx.globals.m_networkable->GetIClientUnknown()->GetBaseEntity();
-//
-//	if (!m_precipitation)
-//		return;
-//
-//	g_ctx.globals.m_networkable->PreDataUpdate(0);
-//	g_ctx.globals.m_networkable->OnPreDataChanged(0);
-//
-//	static auto m_nPrecipType = g_netvars.get(HASH("CPrecipitation"), HASH("m_nPrecipType"));
-//	static auto m_vecMins = g_netvars.get(HASH("CBaseEntity"), HASH("m_vecMins"));
-//	static auto m_vecMaxs = g_netvars.get(HASH("CBaseEntity"), HASH("m_vecMaxs"));
-//
-//	*(int*)(uintptr_t(m_precipitation) + m_nPrecipType) = 0;
-//	*(vec3_t*)(uintptr_t(m_precipitation) + m_vecMaxs) = vec3_t(32768.0f, 32768.0f, 32768.0f);
-//	*(vec3_t*)(uintptr_t(m_precipitation) + m_vecMins) = vec3_t(-32768.0f, -32768.0f, -32768.0f);
-//
-//	m_precipitation->GetCollideable()->OBBMaxs() = vec3_t(32768.0f, 32768.0f, 32768.0f);
-//	m_precipitation->GetCollideable()->OBBMins() = vec3_t(-32768.0f, -32768.0f, -32768.0f);
-//
-//	m_precipitation->set_abs_origin((m_precipitation->GetCollideable()->OBBMins() + m_precipitation->GetCollideable()->OBBMins()) * 0.5f);
-//	m_precipitation->m_vecOrigin() = (m_precipitation->GetCollideable()->OBBMaxs() + m_precipitation->GetCollideable()->OBBMins()) * 0.5f;
-//
-//	m_precipitation->OnDataChanged(0);
-//	m_precipitation->PostDataUpdate(0);
-//}
 
 ang_t flb_view_punch;
 ang_t* view_punch;
