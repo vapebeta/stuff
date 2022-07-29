@@ -24,20 +24,6 @@ void Hooks::LevelInitPostEntity() {
 	g_hooks.m_client.GetOldMethod< LevelInitPostEntity_t >(CHLClient::LEVELINITPOSTENTITY)(this);
 }
 
-void Hooks::LevelShutdown() {
-	g_aimbot.reset();
-
-	g_cl.m_local = nullptr;
-	g_cl.m_weapon = nullptr;
-	g_cl.m_processing = false;
-	g_cl.m_weapon_info = nullptr;
-	g_cl.m_round_end = false;
-
-	g_cl.m_sequences.clear();
-
-	// invoke original method.
-	g_hooks.m_client.GetOldMethod< LevelShutdown_t >(CHLClient::LEVELSHUTDOWN)(this);
-}
 
 ang_t flb_view_punch;
 ang_t* view_punch;
